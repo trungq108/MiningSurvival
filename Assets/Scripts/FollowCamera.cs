@@ -11,7 +11,7 @@ public class FollowCamera : MonoBehaviour
         target = FindObjectOfType<Mover>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         transform.position = target.transform.position;
     }

@@ -86,7 +86,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &9165449031219224608
@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 5297222193239162057}
+  playerAnimator: {fileID: 6467649675081305547}
 --- !u!1001 &1467807441316082006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,6 +155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stylized Astronaut
       objectReference: {fileID: 0}
+    - target: {fileID: 5593195909026790557, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d913a5ff4bbb0e54ca93eedf3d9cf09f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -162,5 +167,10 @@ PrefabInstance:
 --- !u!4 &6467649675073856037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5593195909017195379, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+  m_PrefabInstance: {fileID: 1467807441316082006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6467649675081305547 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5593195909026790557, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
   m_PrefabInstance: {fileID: 1467807441316082006}
   m_PrefabAsset: {fileID: 0}
