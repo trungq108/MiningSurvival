@@ -4,40 +4,31 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Mover : MonoBehaviour
+namespace RPG.Control
 {
-    [SerializeField] NavMeshAgent navMeshAgent;
-    [SerializeField] Animator playerAnimator;
-    Vector3 target;
-
-
-    private void Update()
+    public class Mover : MonoBehaviour
     {
-        if (Input.GetMouseButtonDown(0))
+        [SerializeField] NavMeshAgent navMeshAgent;
+        [SerializeField] Animator playerAnimator;
+
+        private void Update()
         {
-            RayCheck();
+            UpdateAnimation();
         }
-        UpdateAnimation();
-    }
-    
 
-    void RayCheck()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin, ray.direction * 50, Color.red);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, 1<<0))
+        public void ToMove(Vector3 destination)
         {
-            target = hit.point;
+            navMeshAgent.SetDestination(destination);
         }
-        navMeshAgent.SetDestination(target);
+
+        void UpdateAnimation()
+        {
+            Vector3 velocity = navMeshAgent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            float blendTreeSpeed = localVelocity.z;
+
+            playerAnimator.SetFloat("forwardSpeed", blendTreeSpeed);
+        }
     }
 
-    void UpdateAnimation()
-    {
-        Vector3 velocity = navMeshAgent.velocity;
-        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-        float blendTreeSpeed = localVelocity.z;
-
-        playerAnimator.SetFloat("forwardSpeed", blendTreeSpeed);
-    }
 }
