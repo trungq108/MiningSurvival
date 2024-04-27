@@ -1,3 +1,4 @@
+using RPG.Combat;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,15 +11,28 @@ namespace RPG.Control
     {
         [SerializeField] NavMeshAgent navMeshAgent;
         [SerializeField] Animator playerAnimator;
+        [SerializeField] Fighter fighter;
 
         private void Update()
         {
             UpdateAnimation();
         }
 
-        public void ToMove(Vector3 destination)
+        public void Move(Vector3 destination)
+        {
+            fighter.CancelAttack();
+            MoveToPoint(destination);
+        }
+
+        public void MoveToPoint(Vector3 destination)
         {
             navMeshAgent.SetDestination(destination);
+            navMeshAgent.isStopped = false;
+        }
+
+        public void PlayerStop()
+        {
+            navMeshAgent.isStopped = true;
         }
 
         void UpdateAnimation()

@@ -10,7 +10,6 @@ namespace RPG.Movement
 
     public class PlayerController : MonoBehaviour
     {
-        Vector3 target;
         [SerializeField] Mover mover;
         [SerializeField] Fighter fighter;
         RaycastHit[] results = new RaycastHit[3];
@@ -27,7 +26,7 @@ namespace RPG.Movement
             {
                 if (Physics.Raycast(GetMouseRay(), out RaycastHit hit, Mathf.Infinity))
                 {
-                    mover.ToMove(hit.point);
+                    mover.Move(hit.point);
                 }
             }
         }
@@ -40,7 +39,7 @@ namespace RPG.Movement
                 CombatTarget combatTarget = results[i].transform.GetComponent<CombatTarget>();
                 if (combatTarget==null) continue;
 
-                if (Input.GetMouseButtonDown(0))
+                if(Input.GetMouseButtonDown(0))
                 {
                     fighter.Attack(combatTarget);
                 }
