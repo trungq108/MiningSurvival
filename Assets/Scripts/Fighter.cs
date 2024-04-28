@@ -10,8 +10,11 @@ namespace RPG.Combat
     {
         [SerializeField] Mover mover;
         [SerializeField] Animator animator;
+        [SerializeField] ActionScheduler actionScheduler;
+
         [SerializeField] float range = 5f;
         [SerializeField] float timeBettweenAttack = 1f;
+
         float timeSinceLastAttack = 0f;
         Transform target;
 
@@ -39,7 +42,7 @@ namespace RPG.Combat
         public void Attack(CombatTarget combatTarget)
         {
             target = combatTarget.transform;
-            ActionScheduler.Instance.StartAction(this);
+            actionScheduler.StartAction(this);
         }
 
         void AttackBehavior()

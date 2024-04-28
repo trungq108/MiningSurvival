@@ -13,6 +13,8 @@ namespace RPG.Control
         [SerializeField] NavMeshAgent navMeshAgent;
         [SerializeField] Animator playerAnimator;
         [SerializeField] Fighter fighter;
+        [SerializeField] ActionScheduler actionScheduler;
+
 
         private void Update()
         {
@@ -21,7 +23,7 @@ namespace RPG.Control
 
         public void StartMoveAction(Vector3 destination)
         {
-            ActionScheduler.Instance.StartAction(this);
+            actionScheduler.StartAction(this);
             Move(destination);
         }
 
