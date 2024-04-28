@@ -26,7 +26,7 @@ namespace RPG.Movement
             {
                 if (Physics.Raycast(GetMouseRay(), out RaycastHit hit, Mathf.Infinity))
                 {
-                    mover.Move(hit.point);
+                    mover.StartMoveAction(hit.point);
                 }
             }
         }

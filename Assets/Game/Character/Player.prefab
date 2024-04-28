@@ -133,7 +133,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mover: {fileID: 9165449031219224608}
+  animator: {fileID: 6467649675081305547}
   range: 4
+  timeBettweenAttack: 2
 --- !u!1001 &1467807441316082006
 PrefabInstance:
   m_ObjectHideFlags: 0
