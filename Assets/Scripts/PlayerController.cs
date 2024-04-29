@@ -15,7 +15,6 @@ namespace RPG.Movement
         [SerializeField] Fighter fighter;
         RaycastHit[] results = new RaycastHit[3];
 
-
         private void Update()
         {
             if(RayCheckToCombat()) return; 

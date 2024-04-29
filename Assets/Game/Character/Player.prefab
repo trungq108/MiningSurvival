@@ -9,9 +9,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 728204307058722280, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3781748320967168252}
+    - target: {fileID: 728204307058722280, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
       propertyPath: maxHealth
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 728204307058722280, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 3781748320967168252}
     - target: {fileID: 1030960536447304782, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -21,9 +29,17 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2753213171260149856, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 3781748320967168252}
+    - target: {fileID: 2753213171260149856, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
       propertyPath: actionScheduler
       value: 
       objectReference: {fileID: 8304301637061398885}
+    - target: {fileID: 2753213171260149856, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
+      propertyPath: timeBettweenAttack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3269830531824371907, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
       propertyPath: m_Center.y
       value: 1
@@ -81,6 +97,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9165449031219224608, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3781748320967168252}
+    - target: {fileID: 9165449031219224608, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
       propertyPath: actionScheduler
       value: 
       objectReference: {fileID: 8304301637061398885}
@@ -104,6 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4ea45d7d13bcc45891e38ec4ece685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3781748320967168252 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6467649675081305547, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}
+  m_PrefabInstance: {fileID: 7906857579233008951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5444761625056415063 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2753213171260149856, guid: 7e2bb266c211a8b4aa042d1412eaf78f, type: 3}

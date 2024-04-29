@@ -11,7 +11,7 @@ namespace RPG.Control
     public class Mover : MonoBehaviour, IAction
     {
         [SerializeField] NavMeshAgent navMeshAgent;
-        [SerializeField] Animator playerAnimator;
+        [SerializeField] Animator animator;
         [SerializeField] Fighter fighter;
         [SerializeField] ActionScheduler actionScheduler;
 
@@ -24,6 +24,7 @@ namespace RPG.Control
         public void StartMoveAction(Vector3 destination)
         {
             actionScheduler.StartAction(this);
+            
             Move(destination);
         }
 
@@ -44,7 +45,7 @@ namespace RPG.Control
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float blendTreeSpeed = localVelocity.z;
 
-            playerAnimator.SetFloat("forwardSpeed", blendTreeSpeed);
+            animator.SetFloat("forwardSpeed", blendTreeSpeed);
         }
     }
 }
