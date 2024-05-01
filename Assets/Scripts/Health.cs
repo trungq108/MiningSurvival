@@ -17,13 +17,10 @@ namespace RPG.Combat
             currentHealth = maxHealth;
         }
 
-        public void TakeDamage(int damage)
+        public void DecreaseHealth(int damage)
         {
             currentHealth = Mathf.Max(currentHealth - damage,0);
-            if(currentHealth == 0)
-            {
-                Die();
-            }
+            if(currentHealth == 0) Die();
         }
 
         void Die()

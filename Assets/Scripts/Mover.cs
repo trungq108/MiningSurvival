@@ -15,7 +15,6 @@ namespace RPG.Control
         [SerializeField] Fighter fighter;
         [SerializeField] ActionScheduler actionScheduler;
 
-
         private void Update()
         {
             AnimationUpdate();
@@ -24,7 +23,6 @@ namespace RPG.Control
         public void StartMoveAction(Vector3 destination)
         {
             actionScheduler.StartAction(this);
-            
             Move(destination);
         }
 

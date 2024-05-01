@@ -17,13 +17,13 @@ namespace RPG.Combat
         [SerializeField] float timeBettweenAttack = 1f;
 
         float timeSinceLastAttack = 0f;
-        Health target;
+        CombatTarget target;
 
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
             if (target == null) return;
-            if (target.IsDying) return;
+            if (target.IsDead()) return;
           
             if (target != null && !IsInRange())
             {
@@ -41,16 +41,26 @@ namespace RPG.Combat
             return Vector3.Distance(target.transform.position, transform.position) < range;
         }
 
+        public bool CanAtttack(CombatTarget combatTarget)
+        {
+            if(combatTarget == null) return false;
+            return combatTarget != null && !combatTarget.IsDead(); // this return true
+        }
+
         public void Attack(CombatTarget combatTarget)
         {
-            target = combatTarget.GetComponent<Health>();
+            target = combatTarget;
             actionScheduler.StartAction(this);
         }
 
         void AttackBehavior()
         {
+            if(!CanAtttack(target)) return; 
+
+            transform.LookAt(target.transform.position);
             if(timeSinceLastAttack > timeBettweenAttack)
             {
+                animator.ResetTrigger("stopAttack");
                 animator.SetTrigger("Attack");
                 timeSinceLastAttack = 0f;
                 Hit();
@@ -64,6 +74,7 @@ namespace RPG.Combat
 
         public void Cancel()
         {
+            animator.ResetTrigger("Attack");
             animator.SetTrigger("stopAttack");
             target = null ;
         }

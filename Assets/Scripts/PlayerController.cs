@@ -13,7 +13,7 @@ namespace RPG.Movement
     {
         [SerializeField] Mover mover;
         [SerializeField] Fighter fighter;
-        RaycastHit[] results = new RaycastHit[3];
+        RaycastHit[] results = new RaycastHit[4];
 
         private void Update()
         {
@@ -38,9 +38,9 @@ namespace RPG.Movement
             for(int i = 0; i < sizeRay; i++)
             {
                 CombatTarget combatTarget = results[i].transform.GetComponent<CombatTarget>();
-                if (combatTarget==null) continue;
+                if (!fighter.CanAtttack(combatTarget)) continue;
 
-                if(Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     fighter.Attack(combatTarget);
                 }
